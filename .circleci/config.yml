@@ -39,8 +39,8 @@ jobs:
         
       # run tests!
       - run: 
-        name: Launch Tests
-        command: mvn test
+            name: Launch Tests
+            command: mvn test
       
       - run:
           name: Save test results
