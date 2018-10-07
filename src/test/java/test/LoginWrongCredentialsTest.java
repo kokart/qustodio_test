@@ -12,7 +12,7 @@ public class LoginWrongCredentialsTest extends BaseTest {
 	@DataProvider(name = "registerFormData")
 	public Object[][] create_dataset1() {
 		return new Object[][] {
-				{ "Qustodio Family Portal", "emailMALO@mailinator.com", "ZGVtbzEx", "12Invalid email or password" } };
+				{ "Qustodio Family Portal", "emailMALO@mailinator.com", "ZGVtbzEx", "Invalid email or password" } };
 	}
 
 	/**
