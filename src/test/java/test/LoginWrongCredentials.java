@@ -1,46 +1,42 @@
-package test;		
+package test;
 
-import org.apache.commons.codec.binary.Base64;
-import org.apache.commons.codec.binary.StringUtils;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import page.LoginPage;		
-public class LoginWrongCredentials extends BaseTest {		
-	
-	    
-	    //Creamos juego de pruebas
-	    @DataProvider(name = "registerFormData")
-	    public Object [][] create_dataset1() {
-	  	  return new Object[][] {
-	  			  {"Qustodio Family Portal",
-	  				  "emailMALO@mailinator.com","ZGVtbzEx",
-	  				  "Correo o contraseña inválidos"}
-	  	  };
-	    }
-	    
-		/**
-		 * Test que crea un usuario de qustodio.
-		 * @throws InterruptedException
-		 */	    
-	    @Test(dataProvider = "registerFormData")			
-		public void testLoginWrongCredentials(String titleToCheck, String nameForm, String passForm, String errorWindow) throws InterruptedException {	
+import page.LoginPage;
 
-	    	LoginPage lp = new LoginPage(driver,wait);
-	    	//Open Login Page
-	    	lp.goToLoginPage();
-	    	//Check we are where we want
-			Assert.assertEquals(lp.title_LoginPage(driver),titleToCheck);
+public class LoginWrongCredentials extends BaseTest {
 
-			lp.txtbx_UserName(driver).sendKeys(nameForm);
-			lp.txtbx_Password(driver).sendKeys(StringUtils.newStringUtf8(Base64.decodeBase64(passForm)));
-			lp.btn_LogIn(driver).click();
+	// Create datasheet
+	@DataProvider(name = "registerFormData")
+	public Object[][] create_dataset1() {
+		return new Object[][] {
+				{ "Qustodio Family Portal", "emailMALO@mailinator.com", "ZGVtbzEx", "Correo o contraseña inválidos" } };
+	}
 
-			Thread.sleep(1000);
-			
-			//Check we are in
-			Assert.assertTrue(driver.getPageSource().contains(errorWindow));
-		}    
-		
-}	
+	/**
+	 * This test login with wrong credentials to check the error displayed
+	 * 
+	 * @throws InterruptedException
+	 */
+	@Test(dataProvider = "registerFormData")
+	public void testLoginWrongCredentials(String titleLoginPageToCheck, String username, String password,
+			String errorWrongCredentials) throws InterruptedException {
+
+		LoginPage localPage = new LoginPage(driver, wait);
+
+		localPage.goToLoginPage();
+
+		// Check we are where at LoginPage
+		Assert.assertEquals(localPage.title_LoginPage(), titleLoginPageToCheck);
+
+		localPage.enterUserCredentials(username, password);
+
+		Thread.sleep(1000);
+
+		// Check we are in
+		Assert.assertTrue(driver.getPageSource().contains(errorWrongCredentials));
+	}
+
+}

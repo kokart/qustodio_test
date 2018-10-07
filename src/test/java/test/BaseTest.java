@@ -1,5 +1,5 @@
 package test;
- 
+
 import java.io.File;
 import java.io.IOException;
 
@@ -13,37 +13,49 @@ import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
- 
+
 public class BaseTest {
-    public WebDriver driver;
-    public WebDriverWait wait;
-    private final String PATH_SCREENSHOTS = "C:\\errorScreenshots\\";
-    private String pathChromeDriver="src\\test\\resources\\chromedriver.exe";
-   
-    @BeforeClass
-    public void setup () {
-        //Create a Chrome driver. All test and page classes use this driver.
-    	System.setProperty("webdriver.chrome.driver", pathChromeDriver );
-    	driver = new ChromeDriver();
-        //Create a wait. All test and page classes use this wait.
-        wait = new WebDriverWait(driver,15);
- 
-        //Maximize Window
-        driver.manage().window().maximize();
+	public WebDriver driver;
+	public WebDriverWait wait;
+	public String PATH_SCREENSHOTS = "C:\\errorScreenshots\\";
+	public String pathChromeDriver = "src\\test\\resources\\chromedriver.exe";
 
-    }
- 
-    @AfterClass
-    public void teardown () {
-        driver.quit();
-    }
-  @AfterMethod 
-  public void takeScreenShotOnFailure(ITestResult testResult) throws IOException { 
-  	if (testResult.getStatus() == ITestResult.FAILURE)  { 
-  		File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE); 
-  		FileUtils.copyFile(scrFile, new File(PATH_SCREENSHOTS + testResult.getName() + "-" 
-  				+  ".png"));
-  	} 
+	/**
+	 * New Chrome driver and maximize it.
+	 */
+	@BeforeClass
+	public void setup() {
+		// Create a Chrome driver. All test and page classes use this driver.
+		System.setProperty("webdriver.chrome.driver", pathChromeDriver);
+		driver = new ChromeDriver();
+		// Create a wait. All test and page classes use this wait.
+		wait = new WebDriverWait(driver, 15);
 
-  }
+		// Maximize Window
+		driver.manage().window().maximize();
+
+	}
+
+	/**
+	 * Close Chrome
+	 */
+	@AfterClass
+	public void teardown() {
+		driver.quit();
+	}
+
+	/**
+	 * If test fails we get a schreenshot and it's stored at PATH_SCREENSHOTS.
+	 * 
+	 * @param testResult
+	 * @throws IOException
+	 */
+	@AfterMethod
+	public void takeScreenShotOnFailure(ITestResult testResult) throws IOException {
+		if (testResult.getStatus() == ITestResult.FAILURE) {
+			File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+			FileUtils.copyFile(scrFile, new File(PATH_SCREENSHOTS + testResult.getName() + "-" + ".png"));
+		}
+
+	}
 }
