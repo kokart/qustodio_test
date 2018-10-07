@@ -1,12 +1,11 @@
 package page;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class NeedHelpPage extends BasePage {
 
-	public NeedHelpPage(WebDriver driver, WebDriverWait wait) {
-		super(driver, wait);
+	public NeedHelpPage(WebDriver driver) {
+		super(driver);
 		// TODO Auto-generated constructor stub
 	}
 

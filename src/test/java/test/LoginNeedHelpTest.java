@@ -26,7 +26,7 @@ public class LoginNeedHelpTest extends BaseTest {
 	public void testClickNeedHelpLink(String titleLoginPageToCheck, String titleHomePageToCheck)
 			throws InterruptedException {
 
-		LoginPage localPage = new LoginPage(driver, wait);
+		LoginPage localPage = new LoginPage(driver);
 
 		localPage.goToLoginPage();
 

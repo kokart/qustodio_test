@@ -12,7 +12,7 @@ public class LoginWrongCredentialsTest extends BaseTest {
 	@DataProvider(name = "registerFormData")
 	public Object[][] create_dataset1() {
 		return new Object[][] {
-				{ "Qustodio Family Portal", "emailMALO@mailinator.com", "ZGVtbzEx", "Correo o contraseña inválidos" } };
+				{ "Qustodio Family Portal", "emailMALO@mailinator.com", "ZGVtbzEx", "Invalid email or password" } };
 	}
 
 	/**
@@ -24,14 +24,16 @@ public class LoginWrongCredentialsTest extends BaseTest {
 	public void testLoginWrongCredentials(String titleLoginPageToCheck, String username, String password,
 			String errorWrongCredentials) throws InterruptedException {
 
-		LoginPage localPage = new LoginPage(driver, wait);
+		LoginPage localPage = new LoginPage(driver);
 
 		localPage.goToLoginPage();
 
 		// Check we are where at LoginPage
 		Assert.assertEquals(localPage.title_LoginPage(), titleLoginPageToCheck);
 
-		localPage.enterUserCredentials(username, password);
+		localPage.enterUserName(username);
+		localPage.enterUserPassword(password);
+		localPage.clickJoinButton();
 
 		Thread.sleep(1000);
 

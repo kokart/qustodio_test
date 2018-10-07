@@ -5,12 +5,11 @@ import org.apache.commons.codec.binary.StringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LoginPage extends BasePage {
 
-	public LoginPage(WebDriver driver, WebDriverWait wait) {
-		super(driver, wait);
+	public LoginPage(WebDriver driver) {
+		super(driver);
 	}
 
 	// WebElements on the LoginPage. Locators by class, id, name and xpath. We
@@ -100,9 +99,8 @@ public class LoginPage extends BasePage {
 	}
 
 	// Click Join button
-	public DashBoardPage clickJoinButton() {
-		btn_LogIn().click();
-		return new DashBoardPage(driver, wait);
+	public void clickJoinButton() {
+		btn_LogIn().click();		
 	}
 
 	// Click Lost Password Link
@@ -120,19 +118,20 @@ public class LoginPage extends BasePage {
 	public DashBoardPage enterUserCredentials(String username, String password) {
 		enterUserName(username);
 		enterUserPassword(password);
-		return clickJoinButton();
+		clickJoinButton();
+		return new DashBoardPage(driver);
 	}
 
 	// Click Download Button. Return Home Page
 	public HomePage clickDownloadButton() {
 		btn_downloadQustodio().click();
-		return new HomePage(driver, wait);
+		return new HomePage(driver);
 	}
 
 	// Click Need HelocalPage Link. Return Need Help Page
 	public NeedHelpPage clickNeedHelpLink() {
 		lnk_NeedHelocalPage().click();
-		return new NeedHelpPage(driver, wait);
+		return new NeedHelpPage(driver);
 
 	}
 

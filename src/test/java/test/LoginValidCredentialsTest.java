@@ -24,7 +24,7 @@ public class LoginValidCredentialsTest extends BaseTest {
 	public void testLoginUsingValidCredentials(String titleLoginPageToCheck, String username, String password,
 			String dashboardNameToCheck) throws InterruptedException {
 
-		LoginPage loginPage = new LoginPage(driver, wait);
+		LoginPage loginPage = new LoginPage(driver);
 
 		loginPage.goToLoginPage();
 

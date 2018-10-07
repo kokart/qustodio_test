@@ -12,7 +12,7 @@ public class LoginDownloadQustodioLinkTest extends BaseTest {
 	// Create datasheet
 	@DataProvider(name = "registerFormData")
 	public Object[][] create_dataset1() {
-		return new Object[][] { { "Qustodio Family Portal", "Descargar Qustodio - Qustodio" } };
+		return new Object[][] { { "Qustodio Family Portal", "Download Qustodio - Qustodio" } };
 	}
 
 	/**
@@ -25,7 +25,7 @@ public class LoginDownloadQustodioLinkTest extends BaseTest {
 	public void testClickDownloadButtonOnLoginPage(String titleLoginPageToCheck, String tittleHomePageToCheck)
 			throws InterruptedException {
 
-		LoginPage localPage = new LoginPage(driver, wait);
+		LoginPage localPage = new LoginPage(driver);
 
 		localPage.goToLoginPage();
 
@@ -35,6 +35,7 @@ public class LoginDownloadQustodioLinkTest extends BaseTest {
 		HomePage homepage = localPage.clickDownloadButton();
 
 		homepage.changeChromeTab(1);
+		Thread.sleep(1212);
 
 		// Ckeck we are in
 		Assert.assertEquals(homepage.title_HomePagee(), tittleHomePageToCheck);

@@ -2,13 +2,15 @@ package test;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
@@ -16,23 +18,40 @@ import org.testng.annotations.BeforeClass;
 
 public class BaseTest {
 	public WebDriver driver;
-	public WebDriverWait wait;
 	public String PATH_SCREENSHOTS = "C:\\errorScreenshots\\";
-	public String pathChromeDriver = "src\\test\\resources\\chromedriver.exe";
+	//public String pathChromeDriver = "src\\test\\resources\\chromedriver.exe";
+	
+	//Data to use Testing bot
+	  public static final String KEY = System.getenv().get("KEY_TESTINGBOT");
+	  public static final String SECRET = System.getenv().get("SECRET_TESTINGBOT");
+	  public static final String URL = "http://" + KEY + ":" + SECRET + "@hub.testingbot.com/wd/hub";
+	  //localhost. localhost:4445/wd/hub
 
+	
 	/**
-	 * New Chrome driver and maximize it.
+	 * Launch Chrome using TestBot
+	 * @throws MalformedURLException 
 	 */
 	@BeforeClass
-	public void setup() {
-		// Create a Chrome driver. All test and page classes use this driver.
-		System.setProperty("webdriver.chrome.driver", pathChromeDriver);
-		driver = new ChromeDriver();
-		// Create a wait. All test and page classes use this wait.
-		wait = new WebDriverWait(driver, 15);
+	public void setup() throws MalformedURLException {
 
-		// Maximize Window
-		driver.manage().window().maximize();
+	// Create a Chrome driver. All test and page classes use this driver.
+//		System.setProperty("webdriver.chrome.driver", pathChromeDriver);
+//		driver = new ChromeDriver();
+
+//		// Maximize Window
+//		driver.manage().window().maximize();
+		
+		DesiredCapabilities capabillities = new DesiredCapabilities();
+		capabillities.setCapability("platform", "WIN7");
+		capabillities.setCapability("version", "69");
+		capabillities.setCapability("browserName", "chrome");
+
+		
+	        driver = new RemoteWebDriver(
+	                new URL(URL),capabillities);
+	        
+	        
 
 	}
 

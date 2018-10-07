@@ -12,7 +12,7 @@ public class LoginForgotPasswordTest extends BaseTest {
 	@DataProvider(name = "registerFormData")
 	public Object[][] create_dataset1() {
 		return new Object[][] {
-				{ "Qustodio Family Portal", "demo11@mailinator1.com", "captcha", "El código no coincide" } };
+				{ "Qustodio Family Portal", "demo11@mailinator1.com", "captcha", "The code doesn't match" } };
 	}
 
 	/**
@@ -27,7 +27,8 @@ public class LoginForgotPasswordTest extends BaseTest {
 	public void testClickForgotPasswordAndSetWrongCaptcha(String titleLoginPageToCheck, String username,
 			String captchaValue, String errorCaptcha) throws InterruptedException {
 
-		LoginPage localPage = new LoginPage(driver, wait);
+		
+		LoginPage localPage = new LoginPage(driver);
 
 		localPage.goToLoginPage();
 
