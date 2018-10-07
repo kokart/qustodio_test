@@ -44,6 +44,8 @@ jobs:
           name: Save test results
           command: |
             mkdir -p ~/surefire-reports/
+            pwd
+            ls -lar
             cp -r "./target/surefire-reports/*"  ~/surefire-reports/;
           when: always
       - store_test_results:

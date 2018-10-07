@@ -18,7 +18,7 @@ import org.testng.annotations.BeforeClass;
 
 public class BaseTest {
 	public WebDriver driver;
-	public String PATH_SCREENSHOTS = "C:\\errorScreenshots\\";
+	public String PATH_SCREENSHOTS = "target\\surefire-reports\\";
 	//public String pathChromeDriver = "src\\test\\resources\\chromedriver.exe";
 	
 	//Data to use Testing bot
@@ -73,7 +73,7 @@ public class BaseTest {
 	public void takeScreenShotOnFailure(ITestResult testResult) throws IOException {
 		if (testResult.getStatus() == ITestResult.FAILURE) {
 			File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-			FileUtils.copyFile(scrFile, new File(PATH_SCREENSHOTS + testResult.getName() + "-" + ".png"));
+			FileUtils.copyFile(scrFile, new File(PATH_SCREENSHOTS + "SCREEN_ERROR" + testResult.getName() +".png"));
 		}
 
 	}
