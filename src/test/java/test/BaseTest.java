@@ -18,7 +18,7 @@ import org.testng.annotations.BeforeClass;
 
 public class BaseTest {
 	public WebDriver driver;
-	public String PATH_SCREENSHOTS = "target\\surefire-reports\\";
+	public String PATH_SCREENSHOTS = "target/surefire-reports/";
 	//public String pathChromeDriver = "src\\test\\resources\\chromedriver.exe";
 	
 	//Data to use Testing bot
