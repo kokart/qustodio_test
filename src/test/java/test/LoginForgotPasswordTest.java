@@ -33,7 +33,7 @@ public class LoginForgotPasswordTest extends BaseTest {
 		localPage.goToLoginPage();
 
 		// Check we are where at LoginPage
-		Assert.assertEquals(localPage.title_LoginPage(), titleLoginPageToCheck);
+		Assert.assertEquals(localPage.getTitlePage(), titleLoginPageToCheck);
 
 		localPage.enterUserName(username);
 		localPage.clickLostPasswordLink();

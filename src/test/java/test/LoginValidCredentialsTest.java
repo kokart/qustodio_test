@@ -29,7 +29,7 @@ public class LoginValidCredentialsTest extends BaseTest {
 		loginPage.goToLoginPage();
 
 		// Check we are where at LoginPage
-		Assert.assertEquals(loginPage.title_LoginPage(), titleLoginPageToCheck);
+		Assert.assertEquals(loginPage.getTitlePage(), titleLoginPageToCheck);
 
 		DashBoardPage dashboardPage = loginPage.enterUserCredentials(username, password);
 

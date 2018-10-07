@@ -9,9 +9,6 @@ public class HomePage extends BasePage {
 		// TODO Auto-generated constructor stub
 	}
 
-	// Get tittle of the HomePage
-	public String title_HomePagee() {
-		return driver.getTitle();
-	}
+
 
 }

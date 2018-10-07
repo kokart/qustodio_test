@@ -31,14 +31,14 @@ public class LoginNeedHelpTest extends BaseTest {
 		localPage.goToLoginPage();
 
 		// Check we are where at LoginPage
-		Assert.assertEquals(localPage.title_LoginPage(), titleLoginPageToCheck);
+		Assert.assertEquals(localPage.getTitlePage(), titleLoginPageToCheck);
 
 		NeedHelpPage needHelpPage = localPage.clickNeedHelpLink();
 
 		needHelpPage.changeChromeTab(1);
 
 		// Check we are at Need Help Page
-		Assert.assertEquals(needHelpPage.title_NeedHelpPage(), titleHomePageToCheck);
+		Assert.assertEquals(needHelpPage.getTitlePage(), titleHomePageToCheck);
 
 	}
 

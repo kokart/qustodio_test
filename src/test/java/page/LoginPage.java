@@ -78,11 +78,6 @@ public class LoginPage extends BasePage {
 		driver.get(baseURL);
 	}
 
-	// Get tittle of the LoginPage
-	public String title_LoginPage() {
-		return driver.getTitle();
-	}
-
 	// Fill Username field
 	public void enterUserName(String username) {
 		txtbx_UserName().sendKeys(username);

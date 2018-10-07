@@ -9,9 +9,6 @@ public class DashBoardPage extends BasePage {
 		// TODO Auto-generated constructor stub
 	}
 
-	// Get tittle of the DashBoard Page
-	public String title_DashBoardPage() {
-		return driver.getTitle();
-	}
+
 
 }

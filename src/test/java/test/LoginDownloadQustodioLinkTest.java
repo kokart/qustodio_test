@@ -30,7 +30,7 @@ public class LoginDownloadQustodioLinkTest extends BaseTest {
 		localPage.goToLoginPage();
 
 		// Check we are where at LoginPage
-		Assert.assertEquals(localPage.title_LoginPage(), titleLoginPageToCheck);
+		Assert.assertEquals(localPage.getTitlePage(), titleLoginPageToCheck);
 
 		HomePage homepage = localPage.clickDownloadButton();
 
@@ -38,7 +38,7 @@ public class LoginDownloadQustodioLinkTest extends BaseTest {
 		Thread.sleep(1212);
 
 		// Ckeck we are in
-		Assert.assertEquals(homepage.title_HomePagee(), tittleHomePageToCheck);
+		Assert.assertEquals(homepage.getTitlePage(), tittleHomePageToCheck);
 
 	}
 
