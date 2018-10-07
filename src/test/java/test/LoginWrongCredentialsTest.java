@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 
 import page.LoginPage;
 
-public class LoginWrongCredentials extends BaseTest {
+public class LoginWrongCredentialsTest extends BaseTest {
 
 	// Create datasheet
 	@DataProvider(name = "registerFormData")
