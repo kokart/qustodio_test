@@ -9,14 +9,14 @@ public class BasePage {
 
 	// Constructor
 	public BasePage(WebDriver driver) {
-		this.driver = driver;		
+		this.driver = driver;
 	}
 
 	// Get tittle of the DashBoard Page
 	public String getTitlePage() {
 		return driver.getTitle();
 	}
-	
+
 	// Change to desired Tab
 	public void changeChromeTab(int tabSelected) {
 		// Swap Chrome tab. New window is opened when Join Button is clicked

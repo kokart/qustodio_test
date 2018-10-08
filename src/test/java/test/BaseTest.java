@@ -22,17 +22,15 @@ public class BaseTest {
 	public String PATH_SCREENSHOTS = null;
 
 	// Data for local testing
-	public static final String PATH_CHROMEDRIVER = "src\\test\\resources\\chromedriver.exe";
-	public static final String FILE_TO_CHECK = "src\\test\\resources\\local";
-	public static final String PATH_LOCAL_SCREENSHOTS = "target\\surefire-reports\\";
+	public final String PATH_CHROMEDRIVER = "src\\test\\resources\\chromedriver.exe";
+	public final String FILE_TO_CHECK = "src\\test\\resources\\local";
+	public final String PATH_LOCAL_SCREENSHOTS = "target\\surefire-reports\\";
 
 	// Data to use Testing bot
-	public static final String KEY = System.getenv().get("KEY_TESTINGBOT");
-	public static final String SECRET = System.getenv().get("SECRET_TESTINGBOT");
-	public static final String URL = "http://" + KEY + ":" + SECRET + "@hub.testingbot.com/wd/hub";
-	public static final String PATH_REMOTE_SCREENSHOTS = "target/surefire-reports/";
-
-	
+	public final String KEY = System.getenv().get("KEY_TESTINGBOT");
+	public final String SECRET = System.getenv().get("SECRET_TESTINGBOT");
+	public final String URL = "http://" + KEY + ":" + SECRET + "@hub.testingbot.com/wd/hub";
+	public final String PATH_REMOTE_SCREENSHOTS = "target/surefire-reports/";
 
 	/**
 	 * Launch Chrome using TestBot
@@ -42,7 +40,7 @@ public class BaseTest {
 	@BeforeClass
 	public void setup() throws MalformedURLException {
 
-		//Use localDriver or RemoteDriver.
+		// Use localDriver or RemoteDriver.
 		if (new File(FILE_TO_CHECK).exists()) {
 			System.setProperty("webdriver.chrome.driver", PATH_CHROMEDRIVER);
 			driver = new ChromeDriver();
@@ -74,7 +72,8 @@ public class BaseTest {
 
 	public void takeScreenShotOnFailure(ITestResult testResult) throws IOException {
 
-		//Choose the correct path to store screenshots depending if you are using local or remote driver
+		// Choose the correct path to store screenshots depending if you are using local
+		// or remote
 		PATH_SCREENSHOTS = new File(FILE_TO_CHECK).exists() ? PATH_LOCAL_SCREENSHOTS : PATH_REMOTE_SCREENSHOTS;
 		if (testResult.getStatus() == ITestResult.FAILURE) {
 			File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);

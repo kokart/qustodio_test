@@ -27,7 +27,6 @@ public class LoginForgotPasswordTest extends BaseTest {
 	public void testClickForgotPasswordAndSetWrongCaptcha(String titleLoginPageToCheck, String username,
 			String captchaValue, String errorCaptcha) throws InterruptedException {
 
-		
 		LoginPage localPage = new LoginPage(driver);
 
 		localPage.goToLoginPage();
