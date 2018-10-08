@@ -12,7 +12,7 @@ public class BasePage {
 		this.driver = driver;
 	}
 
-	// Get tittle of the DashBoard Page
+	// Get tittle of the Current Page
 	public String getTitlePage() {
 		return driver.getTitle();
 	}
@@ -27,7 +27,7 @@ public class BasePage {
 
 	}
 
-	// Get Source Code of the Web Page
+	// Get Source Code of the Current Page
 	public String getSourceCodeOfHTMLPage() {
 		return driver.getPageSource();
 	}
