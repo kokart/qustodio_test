@@ -23,7 +23,7 @@ public class LoginNeedHelpTest extends BaseTest {
 	 * @throws InterruptedException
 	 */
 	@Test(dataProvider = "registerFormData")
-	public void testClickNeedHelpLink(String titleLoginPageToCheck, String titleHomePageToCheck)
+	public void testClickOnNeedHelpLink(String titleLoginPageToCheck, String titleHomePageToCheck)
 			throws InterruptedException {
 
 		LoginPage localPage = new LoginPage(driver);

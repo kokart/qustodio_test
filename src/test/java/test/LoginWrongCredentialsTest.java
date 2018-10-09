@@ -21,7 +21,7 @@ public class LoginWrongCredentialsTest extends BaseTest {
 	 * @throws InterruptedException
 	 */
 	@Test(dataProvider = "registerFormData")
-	public void testLoginWrongCredentials(String titleLoginPageToCheck, String username, String password,
+	public void testLoginUsingWrongCredentials(String titleLoginPageToCheck, String username, String password,
 			String errorWrongCredentials) throws InterruptedException {
 
 		LoginPage localPage = new LoginPage(driver);

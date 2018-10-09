@@ -22,7 +22,7 @@ public class LoginDownloadQustodioLinkTest extends BaseTest {
 	 * @throws InterruptedException
 	 */
 	@Test(dataProvider = "registerFormData")
-	public void testClickDownloadButtonOnLoginPage(String titleLoginPageToCheck, String tittleHomePageToCheck)
+	public void testClickOnDownloadButtonAtLoginPage(String titleLoginPageToCheck, String tittleHomePageToCheck)
 			throws InterruptedException {
 
 		LoginPage localPage = new LoginPage(driver);
