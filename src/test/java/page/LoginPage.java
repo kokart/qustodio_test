@@ -14,15 +14,15 @@ public class LoginPage extends BasePage {
 
 	// WebElements on the LoginPage. Locators by class, id, name and xpath. We
 	// should encourage dev team to add IDS!
-	public final String usernameName = "email";
-	public final String passwordName = "password";
-	public final String loginButtonId = "login_button";
-	public final String captchaCodeId = "captcha_code";
-	public final String resetPasswordId = "reset_password_button";
-	public final String lostPasswordClass = "lost_password_link";
-	public final String needHelocalPageClass = "contact-us";
-	public final String returnLoginLinkClass = "return_to_login_link";
-	public final String downloadQustodioXpath = "//*[@id=\"newuser_panel\"]/a/span[1]";
+	private final String usernameName = "email";
+	private final String passwordName = "password";
+	private final String loginButtonId = "login_button";
+	private final String captchaCodeId = "captcha_code";
+	private final String resetPasswordId = "reset_password_button";
+	private final String lostPasswordClass = "lost_password_link";
+	private final String needHelocalPageClass = "contact-us";
+	private final String returnLoginLinkClass = "return_to_login_link";
+	private final String downloadQustodioXpath = "//*[@id=\"newuser_panel\"]/a/span[1]";
 
 	// URL LoginPage
 	public final String baseURL = "https://family.qustodio.com/";
