@@ -35,7 +35,7 @@ public class LoginDownloadQustodioLinkTest extends BaseTest {
 		HomePage homepage = localPage.clickDownloadButton();
 
 		homepage.changeChromeTab(1);
-		Thread.sleep(1212);
+		Thread.sleep(1000);
 
 		// Ckeck we are in
 		Assert.assertEquals(homepage.getTitlePage(), tittleHomePageToCheck);

@@ -18,9 +18,11 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
 public class BaseTest {
+	
 	public WebDriver driver;
 	private String PATH_SCREENSHOTS = null;
-
+	private final String NAME_FILE_ERROR_STARTS_WITH = "SCREEN_ERROR";
+	
 	// Data for local testing
 	private final String PATH_CHROMEDRIVER = "src\\test\\resources\\chromedriver.exe";
 	private final String FILE_TO_CHECK = "src\\test\\resources\\local";
@@ -30,7 +32,7 @@ public class BaseTest {
 	private final String KEY = System.getenv().get("KEY_TESTINGBOT");
 	private final String SECRET = System.getenv().get("SECRET_TESTINGBOT");
 	private final String HUB = "@hub.testingbot.com/wd/hub";
-	private final String URL = "http://" + KEY + ":" + SECRET + HUB ;
+	private final String URL = "http://" + KEY + ":" + SECRET + HUB;
 	private final String PATH_REMOTE_SCREENSHOTS = "target/surefire-reports/";
 
 	/**
@@ -82,7 +84,8 @@ public class BaseTest {
 		PATH_SCREENSHOTS = new File(FILE_TO_CHECK).exists() ? PATH_LOCAL_SCREENSHOTS : PATH_REMOTE_SCREENSHOTS;
 		if (testResult.getStatus() == ITestResult.FAILURE) {
 			File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-			FileUtils.copyFile(scrFile, new File(PATH_SCREENSHOTS + "SCREEN_ERROR" + testResult.getName() + ".png"));
+			FileUtils.copyFile(scrFile,
+					new File(PATH_SCREENSHOTS + NAME_FILE_ERROR_STARTS_WITH + testResult.getName() + ".png"));
 		}
 
 	}
