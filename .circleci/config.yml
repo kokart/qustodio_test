@@ -46,7 +46,7 @@ jobs:
           name: Saving test results
           command: |
             mkdir -p ~/surefire-reports/screen_errors/
-            find . -name SCREEN_ERROR* -exec cp {} ~/surefire-reports/screen_errors/ \;
+            find . -name SCREEN_ERROR* -exec mv {} ~/surefire-reports/screen_errors/ \;
             cp -r target/surefire-reports/*  ~/surefire-reports/
           when: always
       - store_test_results:
