@@ -12,7 +12,7 @@ public class LoginDownloadQustodioLinkTest extends BaseTest {
 	// Create datasheet
 	@DataProvider(name = "registerFormData")
 	public Object[][] create_dataset1() {
-		return new Object[][] { { "Qustodio Family Portal", "Downloe3ad Qustodio - Qustodio" } };
+		return new Object[][] { { "Qustodio Family Portal", "Download Qustodio - Qustodio" } };
 	}
 
 	/**
