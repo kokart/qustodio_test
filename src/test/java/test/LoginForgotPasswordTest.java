@@ -12,7 +12,7 @@ public class LoginForgotPasswordTest extends BaseTest {
 	@DataProvider(name = "registerFormData")
 	public Object[][] create_dataset1() {
 		return new Object[][] {
-				{ "Qustodio Family Portal", "demo11@mailinator1.com", "captcha", "The1 code doesn't match" } };
+				{ "Qustodio Family Portal", "demo11@mailinator1.com", "captcha", "The code doesn't match" } };
 	}
 
 	/**
