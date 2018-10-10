@@ -16,7 +16,7 @@ public class LoginForgotPasswordTest extends BaseTest {
 	}
 
 	/**
-	 *
+	 * t
 	 * This test clicks on the Lost Password Link and set an incorrect captcha.We
 	 * check captcha error. On DEV environment we should disable captcha to test the
 	 * whole functionality
