@@ -12,7 +12,7 @@ public class LoginNeedHelpTest extends BaseTest {
 	// Create datasheet
 	@DataProvider(name = "registerFormData")
 	public Object[][] create_dataset1() {
-		return new Object[][] { { "Qustodio Family Portal", "Qustodio Help Center - Qustodio" }
+		return new Object[][] { { "Qustodio Family Portal", "Qustodio Help" }
 
 		};
 	}
