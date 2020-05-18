@@ -13,7 +13,7 @@ public class LoginPage extends BasePage {
 	}
 
 	// WebElements on the LoginPage. Locators by class, id, name and xpath. We
-	// should encourage dev team to add IDS!
+	// should encourage dev team to add IDS!!
 	private final String usernameName = "email";
 	private final String passwordName = "password";
 	private final String loginButtonId = "login_button";
