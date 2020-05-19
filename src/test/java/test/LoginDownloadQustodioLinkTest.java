@@ -17,7 +17,7 @@ public class LoginDownloadQustodioLinkTest extends BaseTest {
 
 	/**
 	 *
-	 * This test clicks on the Download button and check if we are where we expect
+	 * This test clicks on the Download button and check if we are where we expectt
 	 * 
 	 * @throws InterruptedException
 	 */
